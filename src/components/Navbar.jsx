@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingCart, Search, MapPin, User } from 'lucide-react';
 
 
-const Navbar = ({ cart, onLoginClick, onCartClick }) => {
+const Navbar = ({ cart,user, onLoginClick, onCartClick }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
@@ -40,12 +40,12 @@ const Navbar = ({ cart, onLoginClick, onCartClick }) => {
           {/* Login & Cart */}
           <div className="flex items-center gap-4">
             <button 
-              onClick={onLoginClick}
-              className="hidden md:flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-green-600 transition"
-            >
-              <User className="w-5 h-5" />
-              <span>Login</span>
-            </button>
+  onClick={onLoginClick}
+  className="hidden md:flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-green-600 transition"
+>
+  <User className="w-5 h-5" />
+  <span>{user ? user.name : 'Login'}</span>
+</button>
             <button 
               onClick={onCartClick}
               className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition relative"
